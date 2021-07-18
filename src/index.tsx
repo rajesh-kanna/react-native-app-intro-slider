@@ -42,6 +42,7 @@ type Props<ItemT> = {
   nextLabel: string;
   prevLabel: string;
   showDoneButton: boolean;
+  showAlwaysDoneButton: boolean;
   showNextButton: boolean;
   showPrevButton: boolean;
   showSkipButton: boolean;
@@ -71,6 +72,7 @@ export default class AppIntroSlider<ItemT = any> extends React.Component<
     nextLabel: 'Next',
     prevLabel: 'Back',
     showDoneButton: true,
+    showAlwaysDoneButton: false,
     showNextButton: true,
     showPrevButton: false,
     showSkipButton: false,
@@ -203,7 +205,7 @@ export default class AppIntroSlider<ItemT = any> extends React.Component<
     const secondaryButton =
       (!isFirstSlide && this._renderPrevButton()) ||
       (!isLastSlide && this._renderSkipButton());
-    const primaryButton = isLastSlide
+    const primaryButton = (isLastSlide || this.props.showAlwaysDoneButton)
       ? this._renderDoneButton()
       : this._renderNextButton();
 
