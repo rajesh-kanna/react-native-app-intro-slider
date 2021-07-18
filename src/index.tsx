@@ -205,7 +205,7 @@ export default class AppIntroSlider<ItemT = any> extends React.Component<
     const secondaryButton =
       (!isFirstSlide && this._renderPrevButton()) ||
       (!isLastSlide && this._renderSkipButton());
-    const primaryButton = isLastSlide || this.props.showAlwaysDoneButton
+    const primaryButton = (isLastSlide || this.props.showAlwaysDoneButton)
       ? this._renderDoneButton()
       : this._renderNextButton();
 
